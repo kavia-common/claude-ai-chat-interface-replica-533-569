@@ -1,5 +1,6 @@
 const express = require('express');
 const healthController = require('../controllers/health');
+const chatRoutes = require('./chat');
 
 const router = express.Router();
 // Health endpoint
@@ -31,5 +32,8 @@ const router = express.Router();
  *                   example: development
  */
 router.get('/', healthController.check.bind(healthController));
+
+// Mount chat API routes
+router.use('/api', chatRoutes);
 
 module.exports = router;
